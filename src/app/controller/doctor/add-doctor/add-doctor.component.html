@@ -1,0 +1,57 @@
+<div mat-dialog-title>
+  <h1>Doctor Form</h1>
+</div>
+<form [formGroup]="formsService.doctorForm">
+  <form [formGroup]="formsService.doctorForm" (submit)="['Submit'].includes(formsService.doctorForm.controls['updateButton'].value) ? 
+onSubmitClick() : onUpdateClick(formsService.doctorForm.controls['CountryID'].value)">
+    <div mat-dialog-content class="content">
+
+      <h3>Information</h3>
+
+      <mat-tab-group animationDuration="0ms">
+        <mat-tab label="Academic Qualification">Academic Qualification</mat-tab>
+        <mat-tab label="Professional Experience">Professional Experience</mat-tab>
+        <mat-tab label="Services Provided">Services Provided</mat-tab>
+        <mat-tab label="Languages Known">Languages Known</mat-tab>
+        <mat-tab label="Awards">Awards</mat-tab>
+        <mat-tab label="Membership">Membership</mat-tab>
+      </mat-tab-group>
+
+      <h3>BookSlot</h3>
+      <mat-tab-group animationDuration="0ms">
+        <mat-tab label="First">Content 1</mat-tab>
+        <mat-tab label="Second">Content 2</mat-tab>
+        <mat-tab label="Third">Content 3</mat-tab>
+      </mat-tab-group>
+
+      <h3>Queries</h3>
+      <mat-tab-group animationDuration="0ms">
+        <mat-tab label="First">Content 1</mat-tab>
+        <mat-tab label="Second">Content 2</mat-tab>
+        <mat-tab label="Third">Content 3</mat-tab>
+      </mat-tab-group>
+      <h3>Reviews</h3>
+      <mat-tab-group animationDuration="0ms">
+        <mat-tab label="First">Content 1</mat-tab>
+        <mat-tab label="Second">Content 2</mat-tab>
+        <mat-tab label="Third">Content 3</mat-tab>
+      </mat-tab-group>
+      <h3>Gallery</h3>
+      <mat-tab-group animationDuration="0ms">
+        <mat-tab label="First">Content 1</mat-tab>
+        <mat-tab label="Second">Content 2</mat-tab>
+        <mat-tab label="Third">Content 3</mat-tab>
+      </mat-tab-group>
+
+    </div>
+
+    <div mat-dialog-actions class="action">
+      <button mat-raised-button type="button" [mat-dialog-close]="false">Cancel</button>
+      <button mat-raised-button color="primary" type="submit"
+        [disabled]="formsService.doctorForm.invalid ? true : false">
+        {{formsService.doctorForm.controls['updateButton'].value}}
+      </button>
+      <!-- {{formsService.cityForm.controls['updateValue'].value}} -->
+      <!-- (click)="[false].includes(formsService.cityForm.controls['updateValue'].value) ? onSaveClick() : onUpdateClick()" -->
+    </div>
+  </form>

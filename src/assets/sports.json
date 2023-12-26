@@ -1,0 +1,18 @@
+{
+    "NBA": {
+        "link": "https://www.nba.com/",
+        "ticketPrice": 50
+    },
+    "UEFA": {
+        "link": "https://www.uefa.com/",
+        "ticketPrice": 39
+    },
+    "CL": {
+        "link": "https://www.uefa.com/uefachampionsleague/",
+        "ticketPrice": 76
+    },
+    "EuroLeague": {
+        "link": "https://www.euroleague.net/",
+        "ticketPrice": 42
+    }
+}

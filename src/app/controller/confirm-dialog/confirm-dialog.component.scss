@@ -1,0 +1,25 @@
+.buttonOk {
+    text-align: center;
+    background: linear-gradient(180deg, #4ca1f6, #0061bf);
+    border: none;
+    font-size: 18px;
+    color: #f0f7fd;
+    font-weight: 700;
+    width: 34%;
+    padding: 4px;
+    border-radius: 10px;
+    margin: 15% 0% 0% 12%;
+}
+
+//Mobile mode
+@media screen and (max-width: 767px) {
+    ::ng-deep .cdk-overlay-pane {
+        max-width: 85vw !important;
+        width: 85vw !important;
+    }
+
+    .confirm-action-items {
+        text-align: end !important;
+    }
+
+}

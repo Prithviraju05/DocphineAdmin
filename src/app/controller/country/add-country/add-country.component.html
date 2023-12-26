@@ -1,0 +1,43 @@
+<div mat-dialog-title>
+  <h1>Country Form</h1>
+</div>
+<form [formGroup]="formsService.countryForm" (submit)="['Submit'].includes(formsService.countryForm.controls['updateButton'].value) ? 
+onSubmitClick() : 
+onUpdateClick(formsService.countryForm.controls['CountryID'].value)">
+  <div mat-dialog-content class="content">
+
+    <div class="row">
+
+      <mat-form-field appearance="outline">
+        <input formControlName="CountryName" matInput placeholder="Country*">
+        <mat-error
+          *ngIf="formsService.countryForm.controls['CountryName'].touched && !formsService.countryForm.controls['CountryName'].value">This
+          field is mandatory.</mat-error>
+        <mat-error *ngIf="formsService.countryForm.controls['CountryName'].hasError('countryNameExist')">
+          {{errorMessage}}
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-select formControlName="IsActive" placeholder="IsActive*">
+          <mat-option value="default">Select</mat-option>
+          <mat-option *ngFor="let item of IsActiveList" [value]="item.id">{{item.value}}</mat-option>
+        </mat-select>
+        <mat-error>This field is mandatory.</mat-error>
+      </mat-form-field>
+
+    </div>
+  </div>
+
+  <div mat-dialog-actions class="action">
+    <button mat-raised-button type="button" [mat-dialog-close]="false">Cancel</button>
+    <button mat-raised-button color="primary" type="submit"
+      [disabled]="formsService.countryForm.invalid ? true : false">
+      {{formsService.countryForm.controls['updateButton'].value}}
+    </button>
+    <!-- {{formsService.countryForm.controls['updateValue'].value}} -->
+    <!--     (click)="['Submit'].includes(formsService.cityForm.controls['updateButton'].value) ? 
+    onSubmitClick(formsService.countryForm.controls['CountryName'].value) :
+    onUpdateClick(formsService.countryForm.controls['CountryID'].value)" -->
+  </div>
+</form>

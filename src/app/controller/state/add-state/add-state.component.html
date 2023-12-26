@@ -1,0 +1,44 @@
+<div mat-dialog-title>
+  <h1>State Form</h1>
+</div>
+<form [formGroup]="formsService.stateForm" (submit)="['Submit'].includes(formsService.stateForm.controls['updateButton'].value) ? 
+onSubmitClick() : onUpdateClick(formsService.stateForm.controls['CountryID'].value)">
+  <div mat-dialog-content class="content">
+
+    <div class="row">
+
+      <mat-form-field appearance="outline">
+        <mat-label>Country</mat-label>
+        <mat-select disableRipple formControlName="CountryID">
+          <mat-option value="">Select</mat-option>
+          <mat-option *ngFor="let item of countryInfo" [value]="item.CountryID">{{item.CountryName}}</mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <input formControlName="StateName" matInput placeholder="State*">
+        <!-- <mat-error>This field is mandatory.</mat-error> -->
+        <mat-error
+          *ngIf="formsService.stateForm.controls['StateName'].touched && !formsService.stateForm.controls['StateName'].value">This
+          field is mandatory.</mat-error>
+        <mat-error
+          *ngIf="formsService.stateForm.controls['StateName'].hasError('stateNameExist')">{{errorMessage}}</mat-error>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-select formControlName="IsActive" placeholder="Select">
+          <mat-option value="default">Select</mat-option>
+          <mat-option *ngFor="let item of IsActiveList" [value]="item.id">{{item.value}}</mat-option>
+        </mat-select>
+        <mat-error>This field is mandatory.</mat-error>
+      </mat-form-field>
+    </div>
+
+  </div>
+  <div mat-dialog-actions class="action">
+    <button mat-raised-button type="button" [mat-dialog-close]="false">Cancel</button>
+    <button mat-raised-button color="primary" type="submit" [disabled]="formsService.stateForm.invalid ? true : false">
+      {{formsService.stateForm.controls['updateButton'].value}}
+    </button>
+  </div>
+</form>

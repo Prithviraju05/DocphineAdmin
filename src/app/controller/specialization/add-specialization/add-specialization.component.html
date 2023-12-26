@@ -1,0 +1,33 @@
+<div mat-dialog-title>
+    <h1>Specialization Form</h1>
+  </div>
+  <form [formGroup]="formsService.specializationForm">
+    <div mat-dialog-content class="content">
+  
+      <div class="row">
+  
+        <mat-form-field appearance="outline">
+          <input formControlName="SpecializationName" matInput placeholder="Specialization Name*">
+          <mat-error>This field is mandatory.</mat-error>
+        </mat-form-field>
+  
+        <mat-form-field appearance="outline">
+          <mat-select formControlName="IsActive" placeholder="IsActive*">
+            <mat-option value="default">Select</mat-option>
+            <mat-option *ngFor="let item of IsActiveList" [value]="item.id">{{item.value}}</mat-option>
+          </mat-select>
+          <mat-error>This field is mandatory.</mat-error>
+        </mat-form-field>
+  
+      </div>
+    </div>
+  
+    <div mat-dialog-actions class="action">
+      <button mat-raised-button type="button" [mat-dialog-close]="false">Cancel</button>
+      <button mat-raised-button color="primary" type="submit" [disabled]="formsService.cityForm.invalid ? true : false"
+        (click)="onSaveClick()">SAVE
+      </button>
+      <!-- {{formsService.cityForm.controls['updateValue'].value}} -->
+      <!-- (click)="[false].includes(formsService.cityForm.controls['updateValue'].value) ? onSaveClick() : onUpdateClick()" -->
+    </div>
+  </form>

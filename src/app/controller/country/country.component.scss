@@ -1,0 +1,41 @@
+.example-spacer {
+  flex: 1 1 auto;
+}
+
+.main-body {
+  padding: 10px;
+  margin: 0 auto;
+  max-width: 1348px;
+
+  mat-form-field {
+    width: 100%;
+  }
+
+  .search-group {
+    float: left;
+    width: 100%;
+    // padding: 16px 0px 0px 6px;
+
+    .add-btn {
+      width: 8%;
+      height: 55px;
+      float: left;
+      margin-right: 24px;
+
+      &:focus {
+        outline: none;
+      }
+    }
+
+    .search-bar {
+      float: left;
+      width: 90%;
+    }
+  }
+
+}
+
+.action {
+  display: flex;
+  gap: 5px;
+}

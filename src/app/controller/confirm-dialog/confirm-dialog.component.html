@@ -1,0 +1,10 @@
+
+<div class="dialog-message">
+    <h1 mat-dialog-title style="text-align: center; font-family: Nunito Sans Bold;">{{data.title}}</h1>
+    <div mat-dialog-content style="font-family: Nunito Sans Regular; text-align: center;">{{data.message}}</div>
+    <!-- <button mat-button mat-dialog-close type="button" class="buttonOk" style="cursor: pointer;">OK</button>  -->
+    <mat-dialog-content class="confirm-action-items" style="text-align: center;">
+        <span style="color: #4CA1F6;font-family: Nunito Sans Bold;cursor: pointer;"  matDialogClose (click)="dialogRef.close()">Cancel</span>
+        <button mat-button matDialogClose type="button" class="buttonOk" style="cursor: pointer;" (click)="dialogRef.close(true)">YES</button>
+      </mat-dialog-content>
+</div>
